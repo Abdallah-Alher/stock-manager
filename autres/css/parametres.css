@@ -198,6 +198,10 @@ body {
   font-size: 1.25rem;
   font-weight: 700;
 }
+/* Hamburger (desktop : caché) */
+.hamburger {
+  display: none;
+}
 
 .user-top {
   display: flex;

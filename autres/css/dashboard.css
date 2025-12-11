@@ -622,6 +622,9 @@ tr:hover {
   margin-right: 0.75rem;
   font-size: 1rem;
 }
+.edit:hover, .delete:hover {
+  color: #667993;
+}
 .delete {
   color: #4b5563;
   cursor: pointer;
