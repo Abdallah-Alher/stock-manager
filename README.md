@@ -42,7 +42,7 @@ Le tableau de bord permet à un gestionnaire de :
 ## Prise en main
 
 ### Cloner le dépôt :
-- git clone : https://github.com/Abdallah-Alher/Stock_Manager.git
+- git clone : https://github.com/Abdallah-Alher/stock-manager.git
 
 ### Ouvrir le projet
 - Ouvre index.html directement dans ton navigateur
@@ -75,9 +75,9 @@ page pour l’overlay, avec des règles .nav-toggle:checked ~ .sidebar et .nav-t
 
 ## Liens importants
 
-- Dépôt GitHub : https://github.com/Abdallah-Alher/Stock_Manager.git
+- Dépôt GitHub : https://github.com/Abdallah-Alher/stock-manager.git
 
-- Version déployée : https://abdallah-alher.github.io/Stock_Manager/
+- Version déployée : https://abdallah-alher.github.io/stock-manager/
 
 ---
 
