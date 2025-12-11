@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Commandes | Stock Manager</title>
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <!-- CSS Dashboard -->
+        <link rel="stylesheet" href="../css/commands.css">
+    </head>
+
+    <body>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+        <div class="dashboard-container">
+
+            <label for="menu-toggle" class="overlay"></label>
+
+            <!--  SIDEBAR -->
+            <aside class="sidebar">
+                <div class="logo">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h2>Dashboard</h2>
+                </div>
+
+                <nav class="menu">
+                    <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> Tableau de Bord</a>
+                    <a href="analytics.html"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+                    <a href="commandes.html" class="active"><i class="fa-solid fa-cart-shopping"></i> Commandes</a>
+                    <a href="parametres.html"><i class="fa-solid fa-gears"></i> Paramètres</a>
+                    <a href="rapports.html"><i class="fa-solid fa-chart-bar"></i> Rapports</a>
+                    <a href="notification.html"><i class="fa-solid fa-bell"></i> Notifications</a>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="user-info">
+                        <i class="fa-solid fa-user-circle"></i>
+                        <div>
+                            <h4>Administrateur</h4>
+                            <p>Gestionnaire</p>
+                        </div>
+                    </div>
+                    <label for="open-profile" class="btn-profile"><i class="fa-solid fa-user-circle"></i>Mon Profil</label>
+
+                    <!--  Déconnexion → retour page de connexion -->
+                    <a href="../../index.html" class="btn-logout">
+                        <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+                    </a>
+                </div>
+            </aside>
+
+            <!--  TOPBAR -->
+            <header class="topbar">
+                <label for="menu-toggle" class="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+
+                <h1>Gestion de Stock - Produits Électroniques</h1>
+                <div class="user-top">
+                    <!-- Icône notification -->
+                    <a href="notification.html" class="notif-icon">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notif-badge">3</span> <!-- badge placé SUR la cloche -->
+                    </a>
+
+                    <!-- Profil -->
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span class="username">Administrateur</span>
+                </div>
+            </header>
+
+            <!--  CONTENU PRINCIPAL -->
+            <main class="main-content">
+
+                <section class="page-header">
+                    <h1><i class="fa-solid fa-cart-shopping"></i> Gestion des Commandes</h1>
+                    <p>Suivi et gestion complète des commandes clients</p>
+                </section>
+
+                <!-- 4 CARDS -->
+                <div class="orders-stats-cards">
+
+                    <div class="card stat-card">
+                        <div class="icon yellow"><i class="fa-solid fa-clock"></i></div>
+                        <div class="stat-text">
+                            <h3>23</h3>
+                            <p>En attente</p>
+                        </div>
+                    </div>
+
+                    <div class="card stat-card">
+                        <div class="icon blue"><i class="fa-solid fa-gear"></i></div>
+                        <div class="stat-text">
+                            <h3>45</h3>
+                            <p>En cours</p>
+                        </div>
+                    </div>
+
+                    <div class="card stat-card">
+                        <div class="icon purple"><i class="fa-solid fa-truck"></i></div>
+                        <div class="stat-text">
+                            <h3>67</h3>
+                            <p>Expédiées</p>
+                        </div>
+                    </div>
+
+                    <div class="card stat-card">
+                        <div class="icon green"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="stat-text">
+                            <h3>234</h3>
+                            <p>Livrées</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--   SECTION 2 : FILTRES COMMANDES -->
+
+                <section class="orders-filter-card">
+
+                    <div class="filter-row">
+
+                        <!-- Statut -->
+                        <div class="filter-col">
+                            <label>Statut :</label>
+                            <select>
+                                <option>Tous les statuts</option>
+                                <option>En attente</option>
+                                <option>En cours</option>
+                                <option>Expédiées</option>
+                                <option>Livrées</option>
+                            </select>
+                        </div>
+
+                        <!-- Période -->
+                        <div class="filter-col">
+                            <label>Période :</label>
+                            <select>
+                                <option>Aujourd'hui</option>
+                                <option>Cette semaine</option>
+                                <option>Ce mois</option>
+                                <option>Toutes</option>
+                            </select>
+                        </div>
+
+                        <!-- Recherche -->
+                        <div class="filter-col search-col">
+                            <label>&nbsp;</label>
+                            <div class="search-box">
+                                <input type="text" placeholder="Rechercher une commande...">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!--  SECTION 3 : LISTE DES COMMANDES -->
+
+                <div class="orders-list">
+                    <!--   CARTE 1    -->
+                    <!-- Checkbox Voir détails -->
+                    <input type="checkbox" id="cmd-details-1" class="order-modal-toggle">
+
+                    <!-- Checkbox Modifier -->
+                    <input type="checkbox" id="modal-edit-1" class="modal-toggle">
+
+                    <!--  CARTE 1 = -->
+                    <article class="order-card">
+                        <header class="order-card__header">
+                            <div class="order-card__info">
+                                <h2>Commande #CMD-2024-001</h2>
+                                <p>Client : Jean Dupont</p>
+                                <p>Date : 15 Jan 2024</p>
+                            </div>
+
+                            <div class="order-card__status">
+                                <span class="status-text">En attente</span>
+                                <strong class="status-amount">€1,199.00</strong>
+                            </div>
+                        </header>
+
+                        <div class="order-card__item">
+                            <div class="item-main">
+                                <div class="merci">
+                                    <div><i class="fa-solid fa-mobile-screen-button"></i>
+                                         <h3>iPhone 15 Pro <span class="macha">128GB - Bleu</span></h3>
+                                    </div>
+                                    <div class="item-qty macha">x1</div>
+                                    <div class="ordered-price">€1,199.00</div>
+                                    <div class="item-price">€1,199.00</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer class="order-card__actions">
+
+                            <!-- Voir détails -->
+                            <label for="cmd-details-1" class="btn-order primary">
+                                <i class="fa-solid fa-eye"></i> Voir détails
+                            </label>
+
+                            <!-- Modifier -->
+                            <label for="modal-edit-1" class="btn-edit">
+                                <i class="fa-solid fa-pen"></i> Modifier
+                            </label>
+
+                            <button class="btn-order secondary">
+                                <i class="fa-solid fa-check"></i> Traiter
+                            </button>
+                        </footer>
+                    </article>
+
+                    <!--  POPUP VOIR DÉTAILS 1  -->
+                    <div class="order-modal-overlay order-modal-1">
+                        <label for="cmd-details-1" class="order-modal-bg"></label>
+
+                        <div class="order-modal">
+                            <header class="order-modal__header">
+                                <h2><i class="fa-solid fa-eye"></i> Détails de la Commande</h2>
+                                <label for="cmd-details-1" class="order-modal__close">&times;</label>
+                            </header>
+
+                            <div class="order-modal__content">
+
+                                <section class="order-modal__section">
+                                    <h3>Informations Commande</h3>
+                                    <div class="order-modal__grid">
+                                        <div>
+                                            <p class="label">Numéro : </p>
+                                            <p class="value">Commande CMD-2024-001</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Date : </p>
+                                            <p class="value">15 Jan 2024</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Statut : </p>
+                                            <p class="value">En attente</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Total : </p>
+                                            <p class="value">€1,199.00</p>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="order-modal__section">
+                                    <h3>Informations Client</h3>
+                                    <div class="order-modal__grid">
+                                        <div>
+                                            <p class="label">Nom :</p>
+                                            <p class="value">Jean Dupont</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Email :</p>
+                                            <p class="value">jean.dupont@email.com</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Téléphone :</p>
+                                            <p class="value">+33 6 12 34 56 78</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Adresse :</p>
+                                            <p class="value">123 Rue de la Paix, Paris</p>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="order-modal__section">
+                                    <h3>Articles Commandés</h3>
+                                    <div class="ordered-item">
+                                        <div><i class="fa-solid fa-mobile-screen-button"></i></div>
+                                        <div class="ordered-item__info">
+                                            <p class="ordered-name"><b>iPhone 15 Pro </b><span class="macha">128GB -</span>
+                                            </p>
+                                            <div class="ordered-qty macha">1</div>
+                                            <div class="ordered-price">€1,199.00</div>
+                                            <div class="ordered-total">€1,199.00</div>
+                                        </div>
+                                        <div>
+                                            <p class="macha">Bleu</p>
+                                        </div>
+
+                                    </div>
+                                </section>
+                            </div>
+
+                            <footer class="order-modal__footer">
+                                <label for="cmd-details-1" class="btn-order secondary">Fermer</label>
+                                <button class="btn-order primary">Imprimer</button>
+                            </footer>
+                        </div>
+                    </div>
+
+
+                    <!--  POPUP MODIFIER 1  -->
+                    <div class="modal modal-1">
+                        <label for="modal-edit-1" class="modal-bg"></label>
+
+                        <div class="modal-box">
+                            <header class="modal-header">
+                                <h2><i class="fa-solid fa-pen-to-square"></i> Modifier la Commande</h2>
+                                <label for="modal-edit-1" class="close-btn">&times;</label>
+                            </header>
+
+                            <div class="modal-content scroll-area">
+                                <section class="modal-section">
+                                    <h3>Statut de la commande</h3>
+                                    <label>Statut :</label>
+                                    <select>
+                                        <option>En attente</option>
+                                        <option>En cours</option>
+                                        <option>Expédiée</option>
+                                        <option>Livrée</option>
+                                    </select>
+                                </section>
+
+                                <section class="modal-section">
+                                    <h3>Information de livraison</h3>
+                                    <label>Adresse de livraison :</label>
+                                    <textarea rows="2">123 Rue de la Paix, Paris</textarea>
+
+                                    <label>Date de livraison prévue :</label>
+                                    <input type="date" value="2024-01-20">
+                                </section>
+
+                                <section class="modal-section">
+                                    <h3>Notes</h3>
+                                    <label>Note internes :</label>
+                                    <textarea rows="3" placeholder="Notes internes..."></textarea>
+                                </section>
+                            </div>
+
+                            <div class="modal-footer">
+                                <label for="modal-edit-1" class="btn cancel">Annuler</label>
+                                <button class="btn primary">Sauvegarder</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--    CARTE 2  -->
+                    <!-- Checkbox Voir détails -->
+                    <input type="checkbox" id="cmd-details-2" class="order-modal-toggle">
+
+                    <!-- Checkbox Modifier -->
+                    <input type="checkbox" id="modal-edit-2" class="modal-toggle">
+
+                    <!-- ===== CARTE 2 ===== -->
+                    <article class="order-card">
+                        <header class="order-card__header">
+                            <div class="order-card__info">
+                                <h2>Commande #CMD-2024-002</h2>
+                                <p>Client : Marie Martin</p>
+                                <p>Date : 14 Jan 2024</p>
+                            </div>
+
+                            <div class="order-card__status">
+                                <span class="status-text">En cours</span>
+                                <strong class="status-amount">€2,899.00</strong>
+                            </div>
+                        </header>
+
+                        <div class="order-card__item">
+                            <div class="item-main">
+                                <div class="merci">
+                                    <div><i class="fa-solid fa-laptop"></i>
+                                        <h3>MacBook Pro 16" <span class="macha">M3 Pro – 512GB</span></h3>
+                                    </div>
+                                    <div class="item-qty macha">x1</div>
+                                    <div class="">€2,899.00</div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <footer class="order-card__actions">
+                            <label for="cmd-details-2" class="btn-order primary">
+                                <i class="fa-solid fa-eye"></i> Voir détails
+                            </label>
+
+                            <label for="modal-edit-2" class="btn-edit">
+                                <i class="fa-solid fa-pen"></i> Modifier
+                            </label>
+
+                            <button class="btn-order secondary" style="background:#1da1f2; color: white;">
+                                <i class="fa-solid fa-truck"></i> Expédier
+                            </button>
+                        </footer>
+                    </article>
+
+                    <!-- POPUP VOIR DÉTAILS 2 -->
+                    <div class="order-modal-overlay order-modal-2">
+                        <label for="cmd-details-2" class="order-modal-bg"></label>
+
+                        <div class="order-modal">
+                            <header class="order-modal__header">
+                                <h2><i class="fa-solid fa-eye"></i> Détails de la Commande</h2>
+                                <label for="cmd-details-2" class="order-modal__close">&times;</label>
+                            </header>
+
+                            <div class="order-modal__content">
+                                <section class="order-modal__section">
+                                    <h3>Informations Commande</h3>
+                                    <div class="order-modal__grid">
+                                        <div>
+                                            <p class="label">Numéro :</p>
+                                            <p class="value">Commande CMD-2024-002</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Date :</p>
+                                            <p class="value">14 Jan 2024</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Statut :</p>
+                                            <p class="value">En cours</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Total :</p>
+                                            <p class="value">€2,899.00</p>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="order-modal__section">
+                                    <h3>Informations Client</h3>
+                                    <div class="order-modal__grid">
+                                        <div>
+                                            <p class="label">Nom :</p>
+                                            <p class="value">Marie Martin</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Email :</p>
+                                            <p class="value">marie.martin@email.com</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Téléphone :</p>
+                                            <p class="value">+33 7 45 89 12 33</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Adresse :</p>
+                                            <p class="value">45 Rue Exemple, Paris</p>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="order-modal__section">
+                                    <h3>Articles Commandés</h3>
+                                    <div class="ordered-item">
+                                        <div><i class="fa-solid fa-mobile-screen-button"></i></div>
+                                        <div class="ordered-item__info">
+                                            <p class="ordered-name"><b>iPhone 15 Pro </b><span class="macha">128GB -</span>
+                                            </p>
+                                            <div class="ordered-qty macha">1</div>
+                                            <div class="ordered-price">€1,199.00</div>
+                                            <div class="ordered-total">€1,199.00</div>
+                                        </div>
+                                        <div>
+                                            <p class="macha">Bleu</p>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <footer class="order-modal__footer">
+                                <label for="cmd-details-2" class="btn-order secondary">Fermer</label>
+                                <button class="btn-order primary">Imprimer</button>
+                            </footer>
+                        </div>
+                    </div>
+
+                    <!-- POPUP MODIFIER 2 -->
+                    <div class="modal modal-2">
+                        <label for="modal-edit-2" class="modal-bg"></label>
+
+                        <div class="modal-box">
+                            <header class="modal-header">
+                                <h2><i class="fa-solid fa-pen-to-square"></i> Modifier la Commande</h2>
+                                <label for="modal-edit-2" class="close-btn">&times;</label>
+                            </header>
+
+                            <div class="modal-content scroll-area">
+                                <section class="modal-section">
+                                    <h3>Statut</h3>
+                                    <label>Statut :</label>
+                                    <select>
+                                        <option>En cours</option>
+                                        <option>En attente</option>
+                                        <option>Expédiée</option>
+                                        <option>Livrée</option>
+                                    </select>
+                                </section>
+
+                                <section class="modal-section">
+                                    <h3>Livraison</h3>
+                                    <label>Adresse :</label>
+                                    <textarea rows="2">45 Rue Exemple, Paris</textarea>
+
+                                    <label>Date prévue :</label>
+                                    <input type="date" value="2024-01-21">
+                                </section>
+
+                                <section class="modal-section">
+                                    <h3>Notes</h3>
+                                    <textarea rows="3"></textarea>
+                                </section>
+                            </div>
+
+                            <div class="modal-footer">
+                                <label for="modal-edit-2" class="btn cancel">Annuler</label>
+                                <button class="btn primary">Sauvegarder</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--  CARTE 3  -->
+                    <!-- Checkbox Voir détails -->
+                    <input type="checkbox" id="cmd-details-3" class="order-modal-toggle">
+
+                    <!--  CARTE 3  -->
+                    <article class="order-card">
+                        <header class="order-card__header">
+                            <div class="order-card__info">
+                                <h2>Commande #CMD-2024-003</h2>
+                                <p>Client : Pierre Durand</p>
+                                <p>Date : 13 Jan 2024</p>
+                            </div>
+
+                            <div class="order-card__status">
+                                <span class="status-text">Expédiée</span>
+                                <strong class="status-amount">€558.00</strong>
+                            </div>
+                        </header>
+
+                        <div class="order-card__item">
+                            <div class="item-main">
+                                <div class="merci">
+                                    <div><i class="fa-solid fa-headphones-simple"></i>
+                                        <h3>AirPods Pro 2 <span class="macha">USB-C</span></h3>
+                                    </div>
+                                    <div class="item-qty macha">x2</div>
+                                    <div class="">€558.00</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer class="order-card__actions">
+                            <label for="cmd-details-3" class="btn-order primary">
+                                <i class="fa-solid fa-eye"></i> Voir détails
+                            </label>
+
+                            <button class="btn-order primary" style="background:#1da1f2;">
+                                <i class="fa-solid fa-location-dot"></i> Suivre
+                            </button>
+
+                            <button class="btn-order secondary">
+                                <i class="fa-solid fa-check"></i> Marquer livrée
+                            </button>
+                        </footer>
+                    </article>
+
+                    <!-- POPUP VOIR DÉTAILS 3 -->
+                    <div class="order-modal-overlay order-modal-3">
+                        <label for="cmd-details-3" class="order-modal-bg"></label>
+
+                        <div class="order-modal">
+                            <header class="order-modal__header">
+                                <h2><i class="fa-solid fa-eye"></i> Détails de la Commande</h2>
+                                <label for="cmd-details-3" class="order-modal__close">&times;</label>
+                            </header>
+
+                            <div class="order-modal__content">
+                                <section class="order-modal__section">
+                                    <h3>Informations Commande</h3>
+                                    <div class="order-modal__grid">
+                                        <div>
+                                            <p class="label">Numéro :</p>
+                                            <p class="value">Commande CMD-2024-003</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Date :</p>
+                                            <p class="value">13 Jan 2024</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Statut :</p>
+                                            <p class="value">Expédiée</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Total :</p>
+                                            <p class="value">€558.00</p>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="order-modal__section">
+                                    <h3>Informations Client</h3>
+                                    <div class="order-modal__grid">
+                                        <div>
+                                            <p class="label">Nom :</p>
+                                            <p class="value">Pierre Durand</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Email :</p>
+                                            <p class="value">pierre.durand@email.com</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Téléphone :</p>
+                                            <p class="value">+33 7 98 12 45 67</p>
+                                        </div>
+                                        <div>
+                                            <p class="label">Adresse :</p>
+                                            <p class="value">27 Avenue Victor Hugo, Paris</p>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="order-modal__section">
+                                    <h3>Articles Commandés</h3>
+                                    <div class="ordered-item">
+                                        <div><i class="fa-solid fa-mobile-screen-button"></i></div>
+                                        <div class="ordered-item__info">
+                                            <p class="ordered-name"><b>iPhone 15 Pro </b><span class="macha">128GB -</span>
+                                            </p>
+                                            <div class="ordered-qty macha">1</div>
+                                            <div class="ordered-price">€1,199.00</div>
+                                            <div class="ordered-total">€1,199.00</div>
+                                        </div>
+                                        <div>
+                                            <p class="macha">Bleu</p>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <footer class="order-modal__footer">
+                                <label for="cmd-details-3" class="btn-order secondary">Fermer</label>
+                                <button class="btn-order primary">Imprimer</button>
+                            </footer>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+        <!-- POPUP PROFIL  -->
+
+        <input type="checkbox" id="open-profile" class="profile-toggle">
+
+        <div class="profile-overlay">
+            <label for="open-profile" class="profile-bg"></label>
+
+            <div class="profile-box">
+                <header class="profile-header">
+                    <h2><i class="fa-solid fa-circle-user"></i> Mon Profil</h2>
+                    <label for="open-profile" class="close-profile">&times;</label>
+                </header>
+
+                <div class="profile-content">
+                    <div class="profile-photo">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <button class="btn-photo">Changer la photo</button>
+                    </div>
+
+                    <div class="profile-grid">
+                        <div>
+                            <label>Nom :</label>
+                            <input type="text" value="Administrateur">
+                        </div>
+
+                        <div>
+                            <label>Prénom :</label>
+                            <input type="text" value="Jean">
+                        </div>
+
+                        <div>
+                            <label>Email :</label>
+                            <input type="email" value="admin@dashboard.com">
+                        </div>
+
+                        <div>
+                            <label>Téléphone :</label>
+                            <input type="text" value="+33 6 12 34 56 78">
+                        </div>
+
+                        <div class="full">
+                            <label>Rôle :</label>
+                            <input type="text" value="Gestionnaire">
+                        </div>
+
+                        <div class="full">
+                            <label>Dernière connexion :</label>
+                            <input type="text" value="15 Janvier 2024 à 14:30">
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="profile-footer">
+                    <label for="open-profile" class="btn-cancel">Fermer</label>
+                    <button class="btn-save">Sauvegarder</button>
+                </footer>
+            </div>
+        </div>
+    </body>
+
+</html>

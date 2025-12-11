@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics | Stock Manager</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/analytics.css" />
+  </head>
+
+  <body>
+    <!-- Checkbox qui contrôle le menu mobile  -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+    <!--  Conteneur principal -->
+    <section class="dashboard-container">
+
+      <!--  Overlay cliquable pour fermer la sidebar -->
+      <label for="menu-toggle" class="overlay"></label>
+
+      <!--  SIDEBAR  -->
+      <aside class="sidebar">
+        <div class="logo">
+          <i class="fa-solid fa-chart-line"></i>
+          <h2>Dashboard</h2>
+        </div>
+
+        <nav class="menu">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> Tableau de Bord</a>
+          <a href="analytics.html" class="active"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+          <a href="commands.html"><i class="fa-solid fa-cart-shopping"></i> Commandes</a>
+          <a href="parametres.html"><i class="fa-solid fa-gears"></i> Paramètres</a>
+          <a href="rapports.html"><i class="fa-solid fa-chart-bar"></i> Rapports</a>
+          <a href="notification.html"><i class="fa-solid fa-bell"></i> Notifications</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="user-info">
+            <i class="fa-solid fa-user-circle"></i>
+            <div>
+              <h4>Administrateur</h4>
+              <p>Gestionnaire</p>
+            </div>
+          </div>
+          <label for="open-profile" class="btn-profile"><i class="fa-solid fa-user-circle"></i>Mon Profil</label>
+          <!--  Déconnexion → retour page de connexion -->
+          <a href="../../index.html" class="btn-logout">
+            <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+          </a>
+
+        </div>
+      </aside>
+
+      <!--  CONTENU PRINCIPAL -->
+      <main class="main-content">
+
+        <!--  TOPBAR -->
+        <header class="topbar">
+
+          <!--  Icône hamburger pour ouvrir la sidebar en mobile -->
+          <label for="menu-toggle" class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+          </label>
+
+          <h1>Gestion de Stock - Produits Électroniques</h1>
+
+          <div class="user-top">
+            <!-- Icône notification -->
+            <a href="notification.html" class="notif-icon">
+              <i class="fa-solid fa-bell"></i>
+              <span class="notif-badge">3</span>
+            </a>
+
+            <!-- Profil -->
+            <i class="fa-solid fa-circle-user"></i>
+            <span class="username">Administrateur</span>
+          </div>
+
+        </header>
+
+        <!-- **********  SECTION ANALYTICS ********** -->
+        <section class="dashboard-section">
+          <h2><i class="fa-solid fa-chart-line"></i> Analytics & Rapports</h2>
+          <p>Analyse complète des performances et tendances</p>
+
+          <!--  Cartes statistiques -->
+          <div class="stats-container">
+            <div class="stats-card blue">
+              <i class="fa-solid fa-chart-line"></i>
+              <div class="data">
+                <h3>€45,678</h3>
+                <p>Chiffre d'affaires</p>
+                <span class="badge green">+12.5%</span>
+              </div>
+            </div>
+
+            <div class="stats-card green">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <div class="data">
+                <h3>1,234</h3>
+                <p>Commandes</p>
+                <span class="badge green">+8.2%</span>
+              </div>
+            </div>
+
+            <div class="stats-card orange">
+              <i class="fa-solid fa-users"></i>
+              <div class="data">
+                <h3>856</h3>
+                <p>Nouveaux clients</p>
+                <span class="badge red">-2.1%</span>
+              </div>
+            </div>
+
+            <div class="stats-card red">
+              <i class="fa-solid fa-percent"></i>
+              <div class="data">
+                <h3>3.4%</h3>
+                <p>Taux de conversion</p>
+                <span class="badge green">+0.3%</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--  ANALYTICS : SECTION 2  -->
+        <div class="analytics-grid">
+          <!-- Carte gauche : Évolution des Ventes -->
+          <section class="card-panel sales-card">
+            <header class="panel-header">
+              <h3><i class="fa-solid fa-chart-area"></i> Évolution des Ventes</h3>
+              <label class="select-wrap">
+                <select aria-label="Plage de temps">
+                  <option>30 derniers jours</option>
+                  <option>7 derniers jours</option>
+                  <option>90 derniers jours</option>
+                </select>
+              </label>
+            </header>
+
+            <div class="bars-area">
+              <!-- LIGNE 1 : barres -->
+              <div class="bars">
+                <div class="bar h-20" data-month="Jan" data-val="€8,500"></div>
+                <div class="bar h-24" data-month="Fév" data-val="€9,200"></div>
+                <div class="bar h-22" data-month="Mar" data-val="€7,800"></div>
+                <div class="bar h-36" data-month="Avr" data-val="€9,500"></div>
+                <div class="bar h-30" data-month="Mai" data-val="€8,800"></div>
+                <div class="bar h-34" data-month="Jun" data-val="€9,600"></div>
+                <div class="bar h-26" data-month="Jul" data-val="€8,200"></div>
+                <div class="bar h-48" data-month="Aoû" data-val="€8,900"></div>
+                <div class="bar h-38" data-month="Sept" data-val="€8,900"></div>
+                <div class="bar h-30" data-month="Oct" data-val="€8,900"></div>
+                <div class="bar h-44" data-month="Nov" data-val="€8,900"></div>
+                <div class="bar h-40" data-month="Dec" data-val="€8,900"></div>
+              </div>
+
+              <!-- LIGNE 2 : labels & montants -->
+              <div class="bar-labels">
+                <div><span>Jan</span><small>€8,500</small></div>
+                <div><span>Fév</span><small>€9,200</small></div>
+                <div><span>Mar</span><small>€7,800</small></div>
+                <div><span>Avr</span><small>€9,500</small></div>
+                <div><span>Mai</span><small>€8,800</small></div>
+                <div><span>Jun</span><small>€9,600</small></div>
+                <div><span>Jul</span><small>€8,200</small></div>
+                <div><span>Aoû</span><small>€8,900</small></div>
+                <div><span>Sept</span><small>€8,900</small></div>
+                <div><span>Oct</span><small>€8,900</small></div>
+                <div><span>Nov</span><small>€8,900</small></div>
+                <div><span>Dec</span><small>€8,900</small></div>
+              </div>
+            </div>
+
+            <!-- Légende  -->
+            <div class="legend">
+              <span class="dot blue"></span> Ventes Réelles
+              <span class="dot green"></span> Objectifs
+            </div>
+          </section>
+
+          <!-- Carte droite : Répartition par Catégorie -->
+          <aside class="card-panel split-card">
+            <header class="panel-header">
+              <h3><i class="fa-solid fa-chart-bar"></i> Répartition par Catégorie</h3>
+            </header>
+
+            <ul class="split-list">
+              <li>
+                <span class="label">Smartphones</span>
+                <span class="amount">€15,980</span>
+                <div class="progress"><span style="width: 35%"></span></div>
+                <span class="percent">35%</span>
+              </li>
+              <li>
+                <span class="label">Laptops</span>
+                <span class="amount">€11,415</span>
+                <div class="progress"><span style="width: 25%"></span></div>
+                <span class="percent">25%</span>
+              </li>
+              <li>
+                <span class="label">Tablettes</span>
+                <span class="amount">€9,132</span>
+                <div class="progress"><span style="width: 20%"></span></div>
+                <span class="percent">20%</span>
+              </li>
+              <li>
+                <span class="label">Accessoires</span>
+                <span class="amount">€9,132</span>
+                <div class="progress"><span style="width: 20%"></span></div>
+                <span class="percent">20%</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+
+        <!--  ANALYTICS : SECTION 3 — TOP PRODUITS  -->
+        <section class="card-panel top-products">
+          <header class="top-header">
+            <h3><i class="fa-solid fa-trophy"></i> Top Produits</h3>
+
+            <label class="select-sort">
+              <select>
+                <option>Par ventes</option>
+                <option>Par revenus</option>
+                <option>Par marge</option>
+              </select>
+            </label>
+          </header>
+
+          <table class="top-table">
+            <thead>
+              <tr>
+                <th>Rang</th>
+                <th>Produit</th>
+                <th>Ventes</th>
+                <th>Revenus</th>
+                <th>Marge</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td><span class="rank gold">1</span></td>
+                <td class="prod">
+                  <i class="fa-solid fa-mobile-screen-button"></i>
+                  iPhone 15 Pro
+                </td>
+                <td>234</td>
+                <td>€280,866</td>
+                <td>€42,130</td>
+              </tr>
+
+              <tr>
+                <td><span class="rank silver">2</span></td>
+                <td class="prod">
+                  <i class="fa-solid fa-laptop"></i>
+                  MacBook Pro
+                </td>
+                <td>89</td>
+                <td>€257,911</td>
+                <td>€51,582</td>
+              </tr>
+
+              <tr>
+                <td><span class="rank bronze">3</span></td>
+                <td class="prod">
+                  <i class="fa-solid fa-headphones"></i>
+                  AirPods Pro
+                </td>
+                <td>445</td>
+                <td>€124,155</td>
+                <td>€18,623</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+      </main>
+    </section>
+
+    <!--  POPUP PROFIL  -->
+    <input type="checkbox" id="open-profile" class="profile-toggle">
+
+    <div class="profile-overlay">
+      <label for="open-profile" class="profile-bg"></label>
+
+      <div class="profile-box">
+        <header class="profile-header">
+          <h2><i class="fa-solid fa-circle-user"></i> Mon Profil</h2>
+          <label for="open-profile" class="close-profile">&times;</label>
+        </header>
+
+        <div class="profile-content">
+          <div class="profile-photo">
+            <i class="fa-solid fa-circle-user"></i>
+            <button class="btn-photo">Changer la photo</button>
+          </div>
+
+          <div class="profile-grid">
+            <div>
+              <label>Nom :</label>
+              <input type="text" value="Administrateur">
+            </div>
+
+            <div>
+              <label>Prénom :</label>
+              <input type="text" value="Jean">
+            </div>
+
+            <div>
+              <label>Email :</label>
+              <input type="email" value="admin@dashboard.com">
+            </div>
+
+            <div>
+              <label>Téléphone :</label>
+              <input type="text" value="+33 6 12 34 56 78">
+            </div>
+
+            <div class="full">
+              <label>Rôle :</label>
+              <input type="text" value="Gestionnaire">
+            </div>
+
+            <div class="full">
+              <label>Dernière connexion :</label>
+              <input type="text" value="15 Janvier 2024 à 14:30">
+            </div>
+          </div>
+        </div>
+
+        <footer class="profile-footer">
+          <label for="open-profile" class="btn-cancel">Fermer</label>
+          <button class="btn-save">Sauvegarder</button>
+        </footer>
+      </div>
+    </div>
+  </body>
+
+</html>
